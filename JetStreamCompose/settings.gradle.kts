@@ -29,5 +29,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "JetStream"
+include(":voyo-library-multiplatform:common")
+
 include(":jetstream")
 include(":benchmark")
+

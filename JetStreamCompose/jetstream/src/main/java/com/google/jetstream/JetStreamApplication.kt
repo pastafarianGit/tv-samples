@@ -17,20 +17,45 @@
 package com.google.jetstream
 
 import android.app.Application
+import android.os.Build
 import com.google.jetstream.data.repositories.MovieRepository
 import com.google.jetstream.data.repositories.MovieRepositoryImpl
+import com.voyo.common.di.getSharedModules
+import com.voyo.common.di.initKoin
+import com.voyo.common.utils.BuildConfigCommon
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.components.SingletonComponent
+import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
 @HiltAndroidApp
-class JetStreamApplication : Application()
+class JetStreamApplication : Application(){
+    init {
+        //koin
+        val koinApp = initKoin(enableNetworkLogs = true,
+            buildConfig = BuildConfigCommon(
+                buildFlavor = "SiFlavor",
+                buildVersionName = BuildConfig.VERSION_NAME,
+                buildVersionRelease = Build.VERSION.RELEASE,
+                deviceName = "deviceName",
+                deviceModel = "deviceModel"
+            ),
+
+            )
+
+        koinApp.androidContext(this@JetStreamApplication)
+        koinApp.koin.loadModules(getSharedModules()) // need to load after get()
+    }
+}
 
 @InstallIn(SingletonComponent::class)
 @Module
 abstract class MovieRepositoryModule {
+
 
     @Binds
     abstract fun bindMovieRepository(

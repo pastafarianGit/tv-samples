@@ -16,6 +16,7 @@
 
 package com.google.jetstream.presentation.common
 
+import android.text.TextUtils.replace
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -24,6 +25,7 @@ import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.google.jetstream.data.entities.Movie
 import com.google.jetstream.data.util.StringConstants
+import com.voyo.common.utils.CommonConst
 
 @Composable
 fun PosterImage(
@@ -34,7 +36,7 @@ fun PosterImage(
         modifier = modifier,
         model = ImageRequest.Builder(LocalContext.current)
             .crossfade(true)
-            .data(movie.posterUri)
+            .data(movie.posterUri.replace(CommonConst.PLACEHOLDER, "298x441"))
             .build(),
         contentDescription = StringConstants.Composable.ContentDescription.moviePoster(movie.name),
         contentScale = ContentScale.Crop

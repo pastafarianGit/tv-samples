@@ -1,10 +1,11 @@
 [versions]
 activity-compose = "1.10.1"
-android-gradle-plugin = "8.8.2"
-android-test-plugin = "8.8.2"
+android-gradle-plugin = "8.7.2"
+android-test-plugin = "8.7.2"
 androidx-baselineprofile = "1.3.3"
 benchmark-macro-junit4 = "1.3.3"
 coil-compose = "2.7.0"
+compose = "1.7.1"
 compose-bom = "2025.02.00"
 tv-material = "1.0.0"
 core-ktx = "1.15.0"
@@ -21,6 +22,47 @@ navigation-compose = "2.8.8"
 profileinstaller = "1.4.1"
 uiautomator = "2.3.0"
 rules = "1.6.1"
+kmpNativeCoroutines = "1.0.0-ALPHA-25"
+compileSdk = "34"
+kotlinxSerializationJson = "1.7.1"
+minSdk = "23"
+targetSdk = "34"
+
+# https://github.com/JetBrains/compose-jb/blob/master/VERSIONING.md#kotlin-compatibility
+constraintlayoutCompose = "1.0.1"
+datastorePreferences = "1.1.1"
+kotlin = "2.1.0" # https://kotlinlang.org/docs/releases.html#release-details
+agp = "8.2.2" # https://developer.android.com/studio/releases/gradle-plugin
+compose-ui = "1.7.6" # https://github.com/JetBrains/compose-jb
+
+appcompat = "1.7.0" # https://developer.android.com/jetpack/androidx/releases/appcompat
+activity = "1.9.3" # https://developer.android.com/jetpack/androidx/releases/activity
+
+
+koin = "3.6.0-alpha3"
+koinAndroidxCompose = "3.4.5"
+koinComposeMultiplatform = "1.2.0-alpha3"
+
+ktor_version = "2.3.2"
+kotlinx_datetime = "0.5.0"
+kotlin-serialization = "1.6.3"
+
+material-icon-version = "1.4.1"
+napier = "2.6.1"
+hazeCompose = "1.0.0"
+material3Android = "1.3.0"
+lifecycleViewModel = "2.8.6"
+datastore-preferences-core = "1.1.1"
+atomicfuGradlePlugin = "0.23.2"
+roomKtx = "2.6.1"
+runtimeLivedata = "1.7.4"
+constraintLayout = "2.1.4"
+tvMaterialVersion = "1.0.0"
+tvFoundationVersion = "1.0.0-alpha11"
+
+apolloGraphqlPlugin = "2.5.13"
+navigationSafeArgsPlugin = "2.7.1"
+googleServicesPlugin = "4.3.15"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
@@ -48,6 +90,58 @@ hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
 kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 androidx-rules = { group = "androidx.test", name = "rules", version.ref = "rules" }
+composeGradle = { module = "org.jetbrains.compose:compose-gradle-plugin", version.ref = "compose" }
+androidGradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+androidx-constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomKtx" }
+atomicfu-gradle-plugin = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version.ref = "atomicfuGradlePlugin" }
+kotlinGradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+androidx-coreKtx2 = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+compose-runtime = {module = "androidx.compose.runtime:runtime", version.ref = "compose-ui"}
+
+koin-core = {module = "io.insert-koin:koin-core", version.ref = "koin"}
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinAndroidxCompose" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koinComposeMultiplatform" }
+
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+ktor-core = {module = "io.ktor:ktor-client-core", version.ref = "ktor_version"}
+kotlinx-datetime = {module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx_datetime"}
+ktor-serialization = {module = "io.ktor:ktor-client-serialization", version.ref = "ktor_version"}
+ktor-android = {module = "io.ktor:ktor-client-android", version.ref = "ktor_version"}
+ktor-ios = {module = "io.ktor:ktor-client-ios", version.ref = "ktor_version"}
+ktor-java = {module = "io.ktor:ktor-client-java", version.ref = "ktor_version"}
+ktor-client-logging = {module = "io.ktor:ktor-client-logging", version.ref = "ktor_version"}
+ktor-json = {module = "io.ktor:ktor-client-json", version.ref = "ktor_version"}
+ktor-serialization-json = {module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor_version"}
+ktor-contentnegotiation = {module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor_version"}
+kotlin-serialization = {module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlin-serialization"}
+napier = { module = "io.github.aakira:napier", version.ref = "napier" }
+material-icon-extended = {module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "material-icon-version"}
+junit = "junit:junit:4.13.2"
+haze-compose = { module = "dev.chrisbanes.haze:haze", version.ref = "hazeCompose" }
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-compose" }
+
+media3-mediasession = { module = "androidx.media3:media3-session", version.ref = "media3" }
+androidx-media3-exoplayer-hls = { module = "androidx.media3:media3-exoplayer-hls", version.ref = "media3" }
+media3-dash = { module = "androidx.media3:media3-exoplayer-dash", version.ref = "media3" }
+androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewModel"}
+constraint-layout-xml = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
+
+androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastore-preferences-core" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
+
+apollo-graphql-plugin = { module = "com.apollographql.apollo:apollo-gradle-plugin", version.ref = "apolloGraphqlPlugin" }
+navigation-safeargs-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationSafeArgsPlugin" }
+google-services-plugin = { module = "com.google.gms:google-services", version.ref = "googleServicesPlugin" }
+compose-tv-foundation = { module = "androidx.tv:tv-foundation", version.ref = "tvFoundationVersion" }
+compose-tv-material = { module = "androidx.tv:tv-material", version.ref = "tvMaterialVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
@@ -58,3 +152,12 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin-android" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kmpNativeCoroutines = { id = "com.rickclephas.kmp.nativecoroutines", version.ref = "kmpNativeCoroutines" }
+kotlin-serialization-plugin = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-android" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin-android" }
+
+
+[bundles]
+media3 = ["androidx-media3-exoplayer", "androidx-media3-ui", "media3-mediasession",
+    "androidx-media3-exoplayer-hls", "media3-dash"]
+

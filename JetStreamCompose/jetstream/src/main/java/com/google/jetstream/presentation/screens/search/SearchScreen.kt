@@ -221,6 +221,7 @@ fun SearchResult(
 
         item {
             MoviesRow(
+                convertedMovieList = null,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(top = childPadding.top * 2),

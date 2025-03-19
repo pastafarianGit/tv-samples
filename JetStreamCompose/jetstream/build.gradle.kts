@@ -1,3 +1,6 @@
+import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
+import org.jetbrains.compose.ComposePlugin.CommonComponentsDependencies.resources
+
 /*
  * Copyright 2023 Google LLC
  *
@@ -72,6 +75,8 @@ android {
 }
 
 dependencies {
+    //implementation(project(":common"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
@@ -114,7 +119,10 @@ dependencies {
 
     // Compose Previews
     debugImplementation(libs.androidx.compose.ui.tooling)
-
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
+    implementation(libs.koin.androidx.compose)
     // For baseline profile generation
     baselineProfile(project(":benchmark"))
+    implementation(project(":voyo-library-multiplatform:common"))
 }

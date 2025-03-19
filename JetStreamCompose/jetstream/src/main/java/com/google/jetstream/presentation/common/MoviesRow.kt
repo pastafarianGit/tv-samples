@@ -79,7 +79,8 @@ fun MoviesRow(
     ),
     showItemTitle: Boolean = true,
     showIndexOverImage: Boolean = false,
-    onMovieSelected: (movie: Movie) -> Unit = {}
+    convertedMovieList: List<MovieList>? = null,
+    onMovieSelected: (movie: Movie) -> Unit = {},
 ) {
     val (lazyRow, firstItem) = remember { FocusRequester.createRefs() }
 
@@ -117,6 +118,8 @@ fun MoviesRow(
                     } else {
                         Modifier
                     }
+                    val randomImage = getRandomImage(movie, convertedMovieList)
+
                     MoviesRowItem(
                         modifier = itemModifier.weight(1f),
                         index = index,
@@ -125,7 +128,7 @@ fun MoviesRow(
                             lazyRow.saveFocusedChild()
                             onMovieSelected(it)
                         },
-                        movie = movie,
+                        movie = randomImage,
                         showItemTitle = showItemTitle,
                         showIndexOverImage = showIndexOverImage
                     )
@@ -133,6 +136,24 @@ fun MoviesRow(
             }
         }
     }
+}
+
+fun getRandomImage(movie: Movie, convertedMovieList: List<MovieList>?): Movie {
+    //return movie
+    if(convertedMovieList == null) return movie
+   // val randomRowIndex = (IntRange(0, 1)).random()
+    val randomRow = convertedMovieList[0]
+    val randomItemIndex = (randomRow.indices).random()
+    println("random item index1: ${movie.posterUri}")
+    println("random item index2: ${randomRow[randomItemIndex].posterUri
+        .replace("PLACEHOLDER"
+        ,"298x441")}")
+    return Movie(id = movie.id,
+                videoUri = "",
+       subtitleUri = null,
+        posterUri = convertedMovieList[0][0].posterUri,
+        name = randomRow[randomItemIndex].name,
+        description = randomRow[randomItemIndex].description)
 }
 
 @OptIn(ExperimentalComposeUiApi::class)

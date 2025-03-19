@@ -1,0 +1,3 @@
+[submodule "JetStreamCompose/voyo-library-multiplatform"]
+	path = JetStreamCompose/voyo-library-multiplatform
+	url = http://git.poponline.si/Trdin/voyo-library-multiplatform
